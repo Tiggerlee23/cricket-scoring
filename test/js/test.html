@@ -17,6 +17,16 @@
     }
   });
   
+  QUnit.test("Backspace on . makes score = NaN", function( assert ) {
+    enter(.);
+    assert.equal(getScore(), 0);
+    assert.equal(getScorecard(), '.');
+
+    backspace();
+    assert.equal(getScore(), 0);
+    assert.equal(getScorecard(), '');
+  });
+  
   QUnit.test("entering numbers adds to the score", function( assert ) {
     enter(1);
     assert.equal(getScore(), 1);
